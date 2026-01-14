@@ -2,74 +2,61 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue Chez Le R!</title> <!-- Titre dans l'onglet -->
+    <title>Bienvenue Chez Le R!</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png"> <!-- Remplace favicon.png par ton image -->
+    <!-- Favicon directement en base64 -->
+    <link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFhUWGBUVFxgYFRUVFRcXFxYWFhcXGBYYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0dHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tKy0tLS0tKy0tLS03LS0tLS0tN//AABEIAOEA4QMBIgACEQEDEQH/...">
 
+    <!-- Style CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #7f00ff;
+            color: white;
+            text-align: center; /* Centre le texte et le logo */
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #7f00ff, #e100ff);
-            color: white;
         }
 
-        /* En-tête centré avec image et titre */
         header {
-            display: flex;
-            flex-direction: column; /* empile image et titre */
-            align-items: center;    /* centre horizontalement */
-            justify-content: center;
-            padding: 50px 20px;
-            background-color: rgba(0,0,0,0.3);
+            padding: 20px;
+            background-color: #5a00bf;
         }
 
         header img {
-            max-width: 150px;      /* taille de l'image/logo */
-            margin-bottom: 20px;   /* espace entre l'image et le titre */
+            width: 100px; /* Taille du logo */
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto; /* Centre et espace sous le logo */
         }
 
-        header h1 {
+        h1 {
             margin: 0;
             font-size: 36px;
         }
 
-        main {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
         button {
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            background-color: #ff69b4;
-            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
             cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #ff1493;
         }
     </style>
 </head>
 <body>
 
-    <!-- En-tête -->
     <header>
-        <img src="images.jfif" alt="Logo du site"> <!-- Remplace ton-image.png par ton logo -->
-        <h1>Bienvenue sur mon site</h1>
+        <!-- Logo de la page -->
+        <img src="monlogo.png" alt="Logo du site">
+        <h1>Bienvenue Chez Le R!</h1>
     </header>
 
-    <!-- Contenu principal -->
     <main>
+        <p>Profitez de votre visite sur notre site !</p>
         <button onclick="direBonjour()">Clique ici</button>
     </main>
 
+    <!-- Script JS -->
     <script>
         function direBonjour() {
             alert("Bienvenue Chez Le R!");
