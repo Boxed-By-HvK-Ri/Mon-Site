@@ -2,69 +2,109 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue Chez Le R!</title>
-
+    <title>Accueil - Le R!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #7f00ff;
-            color: white;
             text-align: center;
             margin: 0;
             padding: 0;
+            background: #f0f0f0;
         }
-
         header {
+            background: #333;
+            color: white;
             padding: 20px;
-            background-color: #5c08bd;
-        } 
-
-        h1 {
+        }
+        header h1 {
             margin: 0;
-            font-size: 36px;
         }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
         }
-
-        /* Pour un logo temporaire */
-        .logo-placeholder {
-            width: 100px;
-            height: 100px;
-            background-color: white;
-            border-radius: 50%;
-            margin: 0 auto 10px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #7f00ff;
-            font-weight: bold;
+        main {
+            margin-top: 50px;
+        }
+        #message {
             font-size: 24px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+            color: #333;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <!-- Logo temporaire -->
-        <div class="logo-placeholder">R</div>
-        <h1>Bienvenue Chez Le R!</h1>
-    </header>
+<header>
+    <h1>Bienvenue Chez Le R!</h1>
+    <nav>
+        <a href="index.html">Accueil</a> |
+        <a href="about.html">À propos</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-    <main>
-        <p>Profitez de votre visite sur notre site !</p>
-        <button onclick="direBonjour()">Clique ici</button>
-    </main>
+<main>
+    <div id="message">Profitez de votre visite sur notre site !</div>
+    <button id="bouton">Clique ici</button>
+</main>
 
-    <script>
-        function direBonjour() {
-            alert("Bienvenue Chez Le R!");
-        }
-    </script>
+<script>
+const bouton = document.getElementById("bouton");
+const message = document.getElementById("message");
+
+// Messages à afficher
+const messages = [
+    "Bienvenue sur la page d'accueil ! 🎉",
+    "Profitez bien de votre visite ! 😎",
+    "Amusez-vous bien sur Le site! 💪",
+    "Et voilà un autre message sympa 😁",
+    "Un problème ou une question contactez-nous 😎",
+    "Vous cherchez des coéquipiers ? Contactez-nous 💪",
+    "Vous voulez faire une donation ? Contactez-nous 🎉"
+];
+
+let index = 0;
+
+// Fonction couleur aléatoire
+function couleurAleatoire() {
+    const lettres = '0123456789ABCDEF';
+    let couleur = '#';
+    for(let i=0;i<6;i++){
+        couleur += lettres[Math.floor(Math.random()*16)];
+    }
+    return couleur;
+}
+
+// Action du bouton
+bouton.addEventListener("click", () => {
+    message.style.opacity = 0;
+    setTimeout(() => {
+        message.textContent = messages[index];
+        message.style.color = couleurAleatoire();
+        message.style.transform = "scale(1.2)";
+        setTimeout(() => { message.style.transform = "scale(1)"; }, 200);
+        message.style.opacity = 1;
+        index = (index + 1) % messages.length;
+    }, 300);
+});
+</script>
 
 </body>
 </html>
+
